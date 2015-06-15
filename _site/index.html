@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+
+    <!-- google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Nova+Square' rel='stylesheet' type='text/css'>
+
+
+    <title>Human Keyboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- My Own styles -->
+    <link href="/css/custom.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- google analytics-->
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62931224-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <!-- Static navbar -->
+          <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index.html"><img alt="Brand" src="/images/logo_wide.png" height=30"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+            <li><a href="/saltstack.html">Saltstack</a></li>
+            
+            <li><a href="/think.html">Think</a></li>
+            
+            <li><a href="/tips.html">Tips</a></li>
+            
+            <li><a href="/development.html">Development</a></li>
+            
+            <li><a href="/cloud.html">Cloud</a></li>
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target="#myModal">Subscribe</a></li>
+            <!--<li><a href="#">About Me</a></li>
+            <li><a href="#">About You</a></li>--!>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!--<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">title</h4>
+      </div>-->
+      <div class="modal-body">
+        <!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="http://humankeyboard.us3.list-manage.com/subscribe/post?u=5ac4a38df1e4058683ee302ff&amp;id=e8d96cb8ac" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	<h2>Subscribe to get informed when there is a new article</h2>
+<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+<div class="mc-field-group">
+	<label for="mce-FNAME">First Name </label>
+	<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+</div>
+<div class="mc-field-group">
+	<label for="mce-LNAME">Last Name </label>
+	<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+</div>
+<div class="mc-field-group">
+	<label for="mce-MMERGE3">Website URL</label>
+	<input type="url" value="" name="MMERGE3" class=" url" id="mce-MMERGE3">
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_5ac4a38df1e4058683ee302ff_e8d96cb8ac" value=""></div>
+	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</form>
+</div>
+<script type="text/javascript">
+var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='url';
+try {
+    var jqueryLoaded=jQuery;
+    jqueryLoaded=true;
+} catch(err) {
+    var jqueryLoaded=false;
+}
+var head= document.getElementsByTagName('head')[0];
+if (!jqueryLoaded) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js';
+    head.appendChild(script);
+    if (script.readyState && script.onload!==null){
+        script.onreadystatechange= function () {
+              if (this.readyState == 'complete') mce_preload_check();
+        }    
+    }
+}
+
+var err_style = '';
+try{
+    err_style = mc_custom_error_style;
+} catch(e){
+    err_style = '#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}';
+}
+var head= document.getElementsByTagName('head')[0];
+var style= document.createElement('style');
+style.type= 'text/css';
+if (style.styleSheet) {
+  style.styleSheet.cssText = err_style;
+} else {
+  style.appendChild(document.createTextNode(err_style));
+}
+head.appendChild(style);
+setTimeout('mce_preload_check();', 250);
+
+var mce_preload_checks = 0;
+function mce_preload_check(){
+    if (mce_preload_checks>40) return;
+    mce_preload_checks++;
+    try {
+        var jqueryLoaded=jQuery;
+    } catch(err) {
+        setTimeout('mce_preload_check();', 250);
+        return;
+    }
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'http://downloads.mailchimp.com/js/jquery.form-n-validate.js';
+    head.appendChild(script);
+    try {
+        var validatorLoaded=jQuery("#fake-form").validate({});
+    } catch(err) {
+        setTimeout('mce_preload_check();', 250);
+        return;
+    }
+    mce_init_form();
+}
+function mce_init_form(){
+    jQuery(document).ready( function($) {
+      var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
+      var mce_validator = $("#mc-embedded-subscribe-form").validate(options);
+      $("#mc-embedded-subscribe-form").unbind('submit');//remove the validator so we can get into beforeSubmit on the ajaxform, which then calls the validator
+      options = { url: 'http://humankeyboard.us3.list-manage1.com/subscribe/post-json?u=5ac4a38df1e4058683ee302ff&id=e8d96cb8ac&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
+                    beforeSubmit: function(){
+                        $('#mce_tmp_error_msg').remove();
+                        $('.datefield','#mc_embed_signup').each(
+                            function(){
+                                var txt = 'filled';
+                                var fields = new Array();
+                                var i = 0;
+                                $(':text', this).each(
+                                    function(){
+                                        fields[i] = this;
+                                        i++;
+                                    });
+                                $(':hidden', this).each(
+                                    function(){
+                                        var bday = false;
+                                        if (fields.length == 2){
+                                            bday = true;
+                                            fields[2] = {'value':1970};//trick birthdays into having years
+                                        }
+                                    	if ( fields[0].value=='MM' && fields[1].value=='DD' && (fields[2].value=='YYYY' || (bday && fields[2].value==1970) ) ){
+                                    		this.value = '';
+									    } else if ( fields[0].value=='' && fields[1].value=='' && (fields[2].value=='' || (bday && fields[2].value==1970) ) ){
+                                    		this.value = '';
+									    } else {
+									        if (/\[day\]/.test(fields[0].name)){
+    	                                        this.value = fields[1].value+'/'+fields[0].value+'/'+fields[2].value;									        
+									        } else {
+    	                                        this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
+	                                        }
+	                                    }
+                                    });
+                            });
+                        $('.phonefield-us','#mc_embed_signup').each(
+                            function(){
+                                var fields = new Array();
+                                var i = 0;
+                                $(':text', this).each(
+                                    function(){
+                                        fields[i] = this;
+                                        i++;
+                                    });
+                                $(':hidden', this).each(
+                                    function(){
+                                        if ( fields[0].value.length != 3 || fields[1].value.length!=3 || fields[2].value.length!=4 ){
+                                    		this.value = '';
+									    } else {
+									        this.value = 'filled';
+	                                    }
+                                    });
+                            });
+                        return mce_validator.form();
+                    }, 
+                    success: mce_success_cb
+                };
+      $('#mc-embedded-subscribe-form').ajaxForm(options);
+      
+      
+    });
+}
+function mce_success_cb(resp){
+    $('#mce-success-response').hide();
+    $('#mce-error-response').hide();
+    if (resp.result=="success"){
+        $('#mce-'+resp.result+'-response').show();
+        $('#mce-'+resp.result+'-response').html(resp.msg);
+        $('#mc-embedded-subscribe-form').each(function(){
+            this.reset();
+    	});
+    } else {
+        var index = -1;
+        var msg;
+        try {
+            var parts = resp.msg.split(' - ',2);
+            if (parts[1]==undefined){
+                msg = resp.msg;
+            } else {
+                i = parseInt(parts[0]);
+                if (i.toString() == parts[0]){
+                    index = parts[0];
+                    msg = parts[1];
+                } else {
+                    index = -1;
+                    msg = resp.msg;
+                }
+            }
+        } catch(e){
+            index = -1;
+            msg = resp.msg;
+        }
+        try{
+            if (index== -1){
+                $('#mce-'+resp.result+'-response').show();
+                $('#mce-'+resp.result+'-response').html(msg);            
+            } else {
+                err_id = 'mce_tmp_error_msg';
+                html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
+                
+                var input_id = '#mc_embed_signup';
+                var f = $(input_id);
+                if (ftypes[index]=='address'){
+                    input_id = '#mce-'+fnames[index]+'-addr1';
+                    f = $(input_id).parent().parent().get(0);
+                } else if (ftypes[index]=='date'){
+                    input_id = '#mce-'+fnames[index]+'-month';
+                    f = $(input_id).parent().parent().get(0);
+                } else {
+                    input_id = '#mce-'+fnames[index];
+                    f = $().parent(input_id).get(0);
+                }
+                if (f){
+                    $(f).append(html);
+                    $(input_id).focus();
+                } else {
+                    $('#mce-'+resp.result+'-response').show();
+                    $('#mce-'+resp.result+'-response').html(msg);
+                }
+            }
+        } catch(e){
+            $('#mce-'+resp.result+'-response').show();
+            $('#mce-'+resp.result+'-response').html(msg);
+        }
+    }
+}
+
+</script>
+<!--End mc_embed_signup-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1>Human Keyboard</h1>
+          <p>Don't be a human keyboard. Don't be a part of the culture that threats humans as input devices. Don't let them ask you to build a server everytime they need one. Give them the tools to build one. Don't let them ask you if site is down. Give them the tools to check if site is down. Don't let them tell you what to do, instead understand what problem they are trying to solve. Know your tools, don't let anyone tell you how to use them.</p>
+        </div>
+      </div>
+
+      <div class="container">
+        
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <h2><a href="/saltstack/2015/salt-killer-features.html">SaltStack Madness</a></h2>
+            <p class="lead">What makes Salt a sick tool</p>
+            <small style="font-size: 75%">First Published: 12 Jun 2015,
+              Filed Under: 
+              <a href="/saltstack.html">saltstack</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/tips/2015/sdn-vs-nfv.html">SDN vs NFV</a></h2>
+            <p class="lead">What is the difference between Software Defined Networking and Network Function Virtualization? You can't really compare these two as they are in a way complementary technologies but also can be implemented alone.</p>
+            <small style="font-size: 75%">First Published: 11 Jun 2015,
+              Filed Under: 
+              <a href="/tips.html">tips</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/cloud/2015/openstack-cinder.html">OpenStack Cinder Concepts</a></h2>
+            <p class="lead">Notes on OpenStack Cinder</p>
+            <small style="font-size: 75%">First Published: 10 Jun 2015,
+              Filed Under: 
+              <a href="/cloud.html">cloud</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/cloud/2015/openvswtich-network-namespaces.html">Network Namespaces, OpenvSwitch and VLAN Tags</a></h2>
+            <p class="lead">Finally you found that network namespaces are being used for so long in so many places.</p>
+            <small style="font-size: 75%">First Published: 08 Jun 2015,
+              Filed Under: 
+              <a href="/cloud.html">cloud</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/development/2015/async-operations.html">Asynchronous Operations in RESTful API</a></h2>
+            <p class="lead">Do you have long running tasks for which you don't want to block the web server or keep the consumer waiting? You might consider this method to implement asynchronous operations.</p>
+            <small style="font-size: 75%">First Published: 15 May 2015,
+              Filed Under: 
+              <a href="/development.html">development</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/development/2015/agile-dilemma.html">The Agile Dilemma</a></h2>
+            <p class="lead">Would you build a feature even if you know it will block you later on?</p>
+            <small style="font-size: 75%">First Published: 12 May 2015,
+              Filed Under: 
+              <a href="/development.html">development</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/2015/ops_dev_qa.html">Ops_dev_qa</a></h2>
+            <p class="lead"></p>
+            <small style="font-size: 75%">First Published: 05 May 2015,
+              Filed Under: 
+            </small>
+            <hr>
+            
+            <h2><a href="/tips/2015/vagrant-basics.html">Create a Ubuntu VM using Vagrant and VirtualBox</a></h2>
+            <p class="lead">All you need to know to create your first VM with Vagrant.</p>
+            <small style="font-size: 75%">First Published: 01 Jan 2015,
+              Filed Under: 
+              <a href="/tips.html">tips</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/tips/2014/tips-python-json-yaml.html">Assigning YAML and JSON output to a bash variable</a></h2>
+            <p class="lead">I like how easy it is to use python to parse output of a bash command which produces JSON or YAML output.</p>
+            <small style="font-size: 75%">First Published: 19 May 2014,
+              Filed Under: 
+              <a href="/tips.html">tips</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/saltstack/2014/2014-05-18-salt-installer.html">Salt Master Creator</a></h2>
+            <p class="lead">Creating a salt-master with a single shell command</p>
+            <small style="font-size: 75%">First Published: 18 May 2014,
+              Filed Under: 
+              <a href="/saltstack.html">saltstack</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/tips/2014/virtualbox-ubuntu-tip.html">VirtualBox won't start on Ubuntu 14.04 (Trusty)</a></h2>
+            <p class="lead">When VirtualBox complains about /dev/vboxdrv...</p>
+            <small style="font-size: 75%">First Published: 08 May 2014,
+              Filed Under: 
+              <a href="/tips.html">tips</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/saltstack/2014/2014-04-23-salt-sandbox.html">SaltStack Sandbox</a></h2>
+            <p class="lead">You have created salt-master twice, which is more than once, automating it would be vise!</p>
+            <small style="font-size: 75%">First Published: 24 Apr 2014,
+              Filed Under: 
+              <a href="/saltstack.html">saltstack</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/saltstack/2014/saltstack-virtualbox-vagrant.html">SaltStack + VirtualBox + Vagrant</a></h2>
+            <p class="lead">To create the next great SaltStack formula, you need less than I thought you did.</p>
+            <small style="font-size: 75%">First Published: 23 Apr 2014,
+              Filed Under: 
+              <a href="/saltstack.html">saltstack</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/saltstack/2014/using-salt-rocks.html">Using Salt Rocks</a></h2>
+            <p class="lead">How to use a rocks in your environment</p>
+            <small style="font-size: 75%">First Published: 03 Jan 2014,
+              Filed Under: 
+              <a href="/saltstack.html">saltstack</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/saltstack/2013/how-to-restart-salt-minion.html">How To Restart Salt Minion</a></h2>
+            <p class="lead">It is not so easy to restart salt minion but sure there is a way.</p>
+            <small style="font-size: 75%">First Published: 31 Dec 2013,
+              Filed Under: 
+              <a href="/saltstack.html">saltstack</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/saltstack/2013/2013-12-31-saltstack-environment-proposal.html">SaltStack Environment Proposal</a></h2>
+            <p class="lead">Managing environments is a challange with any configuration management tool. Let's see how we can solve it with SaltStack.</p>
+            <small style="font-size: 75%">First Published: 31 Dec 2013,
+              Filed Under: 
+              <a href="/saltstack.html">saltstack</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/saltstack/2013/hello-world.html">Salt Publish vs Mine</a></h2>
+            <p class="lead">Salt has two ways to access minion information. One of them is called publish other one is called mine.</p>
+            <small style="font-size: 75%">First Published: 30 Dec 2013,
+              Filed Under: 
+              <a href="/saltstack.html">saltstack</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/2013/welcome-to-jekyll.html">Welcome to Jekyll!</a></h2>
+            <p class="lead"></p>
+            <small style="font-size: 75%">First Published: 30 Dec 2013,
+              Filed Under: 
+            </small>
+            <hr>
+            
+            <h2><a href="/saltstack/2013/multiple-masters.html">Multiple Salt Masters</a></h2>
+            <p class="lead">The first time I heard it, I was pretty excited. The first time I used it, I was impressed.</p>
+            <small style="font-size: 75%">First Published: 02 Oct 2013,
+              Filed Under: 
+              <a href="/saltstack.html">saltstack</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/think/2013/mind-is-conditioned.html">Mind Is Conditioned</a></h2>
+            <p class="lead">Are you the solution or part of the problem?</p>
+            <small style="font-size: 75%">First Published: 15 Sep 2013,
+              Filed Under: 
+              <a href="/think.html">think</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/think/2013/magic-it-is.html">Magic It Is</a></h2>
+            <p class="lead">The simpler it gets the more familiar we feel ourselves.</p>
+            <small style="font-size: 75%">First Published: 09 Jul 2013,
+              Filed Under: 
+              <a href="/think.html">think</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/saltstack/2013/execution-order-and-overstate.html">Execution Order and Overstate</a></h2>
+            <p class="lead">Execution order is important while provisioning new servers, while creating environments for the first time or while setting up an database service.</p>
+            <small style="font-size: 75%">First Published: 05 Jun 2013,
+              Filed Under: 
+              <a href="/saltstack.html">saltstack</a>
+              
+            </small>
+            <hr>
+            
+            <h2><a href="/saltstack/2013/salt-mine.html">Salt Mine</a></h2>
+            <p class="lead">Salt without mine would be no salt at all.</p>
+            <small style="font-size: 75%">First Published: 05 Jun 2013,
+              Filed Under: 
+              <a href="/saltstack.html">saltstack</a>
+              
+            </small>
+            <hr>
+            
+          </div>
+          <div class="col-md-3">
+            
+
+<a class="twitter-timeline" href="https://twitter.com/HumanKeyboard" data-widget-id="419113222797410304">Tweets by @HumanKeyboard</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+          </div>
+        </div>
+      </div> <!-- /container -->
+    </div>
+    <div id="footer">
+  <div class="container">
+    <p class="text-muted"><p class="lead">&copy; Human Keyboard 2015</p></p>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

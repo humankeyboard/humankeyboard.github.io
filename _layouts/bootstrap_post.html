@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="{{ page.author }}">
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+
+    <!-- google fonts -->
+    {% include fonts.html %}
+
+    <title>{{ page.title }}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- My Own styles -->
+    <link href="/css/custom.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- google plus profle js -->
+    {% include plus_profile.html %}
+
+    <!-- twitter share js -->
+    {% include twitter_share.html %}
+
+    <!-- google analytics-->
+    {% include track_usage.html %}
+  </head>
+
+  <body>
+    <div id="wrap">
+      <!-- Static navbar -->
+      {% include navbar.html %}
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1>{{ page.title }}</h1>
+          <p>{{ page.abstract }}</p>
+          <small style="font-size: 75%">Published on: {{ page.date | date_to_string }} |
+          Filed Under:
+            {% for category in page.categories %}
+            <a href="{{ site.url}}/{{ category }}.html">{{ category }}</a>
+            {% endfor %}
+            | Author: {{ page.author }}
+            {% include social.html author=page.author type="twitter_icon" %}
+          </small>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <p>{{ content }}</p>
+            <hr>
+            <p class="lead">Wanna Share?</p>
+            <p><a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="{{ page.title }}" data-hashtags="{{ page.categories | first }}" data-via="humankeyboard" data-url="http://{{ site.domain }}{{ page.url }}">Tweet</a></p>
+            <hr>
+            <p>{% include disqus.html %}</p>
+          </div>
+          <div class="col-md-3">
+            {% include social.html author=page.author type="twitter_timeline" %}
+          </div>
+        </div>
+      </div> <!-- /container -->
+    </div>
+
+    {% include footer.html %}
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

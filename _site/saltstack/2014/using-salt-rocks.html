@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Oz Akan">
+    <link rel="shortcut icon" href="/icons/favicon.png">
+
+    <title>Using Salt Rocks</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <p><h2>Rocks, What is it?</h2>
+
+<p>Rocks or salt-rocks, is an experimental git repo with group of salt formulas which could be used as a starting point for new formulas. For example, salt-rocks has a formula for mongodb so you can just import salt-rocks and with little effort define your own mongodb servers. Still, purpose of this article is to articulate how an external library (like salt-rocks) can be used in a configuration with several environments.</p>
+
+<h2>What are we doing?</h2>
+
+<p>We will import salt-rocks into our salt environment and create a project in which we will hold all environments specific to that project. Eventually we will be able to use salt-rocks formulas like ntp, emacs in our formulas without being have to re-invent the wheel. In our project folder we will have environments like production, test, development and also location based ones.</p>
+
+<!--
+## Let's Start With Basics
+
+### The Top File(s) and Environments
+
+The top file defines which modules are accessible by which minions by utulizing a concept called environment.
+
+Environments uses a `matcher` which defines which minons are under specific environment and then provides the modules to these minions via salt state system. All you need to think is salt has a file server and everthing is organized uder folders. Environment definition makes some of these folders ( and salt formulas in those folders) accesible by some minions. 
+
+The top files under different environments (different folders) are compiled into single set of data following a few rules. 
+
+First we need to define which environments are under which folders. Base is a special environment as if no environment if specified in it is going to be used by default.
+
+
+```
+# /etc/salt/master
+# partial file
+
+file_roots:
+  base:
+    - /srv/salt/base
+  production:
+    - /srv/salt/production
+  test:
+    - /srv/salt/test
+
+...
+```
+
+Then lets create our base (default) `top.sls` file.
+
+```
+# /srv/salt/base/top.sls
+base:
+  '*':
+    - common_packages
+production:
+  'prod*':
+    - prod_packages
+test:
+  'test*':
+    - test_packages
+
+```
+
+Lets assume that `common_packages`, `prod_packages` and `test_packages` installs packages sepecific for the environment. `base_packages` intstalls `ntp` on all servers while `prod_packages` installs a specfic version of mysql or apache etc.
+
+If we create other `top.sls` files under other environments defined in `/etc/salt/master`, all off these fill be merged into one top collection and top file in base environment will have priority over other files for the matchig environments.
+
+Check this example. Assume we have two `top.sls` files, one for `base` one for `production`.
+
+```
+# /srv/salt/base/top.sls
+base:
+  '*':
+    - common_packages
+test:
+  'test*':
+    - test_packages
+    - add_users
+
+```
+
+```
+# /srv/salt/production/top.sls
+production:
+  'prod*':
+    - prod_packages
+test:
+  'test*':
+    - test_packages
+    - install_web_server
+
+```
+
+The logical representation for `top.sls` file would be something like this:
+
+
+```
+# logical top data
+base:
+  '*':
+    - common_packages
+production:
+  'prod*':
+    - prod_packages
+test:
+  'test*':
+    - test_packages
+    - add_users
+
+```
+
+`test` environment would be represented as it is in `base` top file.
+
+### Pillar of Salt
+
+Pillar provides global values that can be distributed to all minions. It is made of files storing data in YAML format, requires `top.sls` file and is managed like states.
+
+```
+# /etc/salt/master
+# partial file
+
+pillar_roots:
+  base:
+    - /srv/salt/pillar
+```
+
+```
+# /srv/salt/pillar/top.sls
+# partial file
+
+/srv/pillar/top.sls
+
+base:
+  '*':
+    - packages
+```
+
+<p><small>reference: <a href="http://http://docs.saltstack.com/ref/states/top.html">docs.saltstack.com</a></small></p>
+
+### Salt Fileserver Path Inheritance
+Salt's fileserver allows for more than one root directory per environment, like in the below example, which uses two directories:
+
+```
+# In the master config file (/etc/salt/master)
+file_roots:
+  base:
+    - /srv/salt
+    - /srv/salt/base
+```
+
+Salt's fileserver collapses the list of root directories into a single virtual environment containing all files from each root. If the same file exists at the same relative path in more than one root, then the top-most match "wins". For example, if `/srv/salt/foo.txt` and `/srv/salt/base/foo.txt` both exist, then `salt://foo.txt` will point to `/srv/salt/foo.txt`.
+<p><small>reference: <a href="http://docs.saltstack.com/topics/tutorials/states_pt4.html#environment-configuration">docs.saltstack.com</a></small></p>
+
+
+-->
+
+<h2>Create Folders</h2>
+
+<p>To have proper folders we will have to pull code from two github repositories. First one is our projects repo, second one is salt-rocks repo.</p>
+
+<p>Our project name is <code>my_project</code>, yours can be anything. Our formulas are under a git repo and contains these folders:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">./base
+./my_project
+./my_project/base
+./my_project/prod
+./my_project/test
+</code></pre></div>
+<p><code>./my_project/prod</code> and <code>./my_project/test</code> folders have other sub folders with state formulas and pillar data. <code>./my_project/base</code> has the formulas common for prod and test environments. <code>./base</code> will hold the base salt environment.</p>
+
+<p>After creating <code>/srv/salt</code>, I pull my project under my project (<code>/srv/salt/my_project</code>) folder.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># mkdir /srv/salt
+# git clone git@github.com:rackerlabs/my_project.git /srv/salt/my_project
+Cloning into &#39;my_project&#39;...
+Warning: Permanently added the RSA host key for IP address &#39;392.330.352.330&#39; to the list of known hosts.
+remote: Reusing existing pack: 4, done.
+remote: Total 4 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (4/4), 14.17 KiB, done.
+</code></pre></div>
+<p>New folder structure will look like this:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">/srv/salt
+├── base
+└── my_project
+    ├── base
+    ├── prod
+    └── test
+</code></pre></div>
+<p><code>/srv/salt/my_project</code> will hold the formulas for our project.</p>
+
+<p><code>/srv/salt/my_project/base</code> will have formulas to create for example a <code>web_server</code> while others will have mostly pillar data and a few formulas defining the servers that have to be different in different environments. Because of the overlay set up  we will have for environments, both <code>prod</code> and <code>test</code> will be able to use the formulas under <code>base</code> environment.</p>
+
+<p>Now pull salt-rocks under <code>/srv/salt-rocks</code></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># git clone git@github.com:rackerlabs/salt-rocks.git /srv/salt-rocks
+Cloning into &#39;salt-rocks&#39;...
+Warning: Permanently added the RSA host key for IP address &#39;392.130.132.130&#39; to the list of known hosts.
+remote: Reusing existing pack: 4, done.
+remote: Total 4 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (4/4), 4.17 KiB, done.
+</code></pre></div>
+<p>Folder stricture will look like this:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">/srv
+├── salt
+│   ├── base
+│   └── my_project
+│       ├── base
+│       ├── prod
+│       └── test
+└── salt-rocks
+</code></pre></div>
+<p>Last step is to create a symbolic link in <code>my_project/base</code> folder to <code>/srv/salt-rocks</code></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># ln -s /srv/salt-rocks /srv/salt/my_project/rocks
+</code></pre></div>
+<p>Now, unless overwritten by overlay files, all environments will have salt-rocks formulas.</p>
+
+<h2>Configure Salt Master</h2>
+
+<h3>Configure Environments</h3>
+
+<p>We will set the environments:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># /etc/salt/master
+
+file_roots:
+  base:
+    - /srv/salt/base
+  my_project-prod:
+    - /srv/salt/my_project/prod
+    - /srv/salt/my_project/base
+  my_project-test
+    - /srv/salt/my_project/test
+    - /srv/salt/my_project/base
+
+...
+
+pillar_roots:
+  base:
+    - /srv/salt/base/pillar
+  my_project-prod:
+    - /srv/salt/my_project/prod/pillar
+    - /srv/salt/my_project/base/pillar
+  my_project-test:
+    - /srv/salt/my_project/test/pillar
+    - /srv/salt/my_project/base/pillar
+</code></pre></div>
+<p>Restart salt-master to make configuration effective.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># service restart salt-master
+</code></pre></div>
+<h3>What About The Secrets?</h3>
+
+<p>Very often we had configuration data that we didn&#39;t want to put on any kind of shared repository. Directory overlay is again the solution. We basically created a local folder on salt-master and defined this in salt configuration.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">pillar_roots:
+  base:
+    - /srv/salt/base/pillar
+  my_project-prod:
+    - /srv/salt/my_project/prod/pillar
+    - /srv/salt/my_project/base/pillar
+    - /srv/secret/my_project/prod/pillar
+    - /srv/secret/my_project/base/pillar
+  my_project-test:
+    - /srv/salt/my_project/test/pillar
+    - /srv/salt/my_project/base/pillar
+    - /srv/secret/my_project/test/pillar
+    - /srv/secret/my_project/base/pillar
+</code></pre></div>
+<p>Now we have a  environment.</p>
+</p>
+          <hr>
+        </div>
+        <div class="col-md-3">
+        	.
+        </div>
+      </div>
+    </div> <!-- /container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+</html> 
