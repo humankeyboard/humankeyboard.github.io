@@ -21,6 +21,10 @@ Salt is a tool that will give you super powers. Once it is in your life, you can
 I want to write little bit about some interesting features Salt has.
 
 
+
+What makes Salt unique is having zeromq in it's core. A messaging system like many distributed applications have. All communication is done via zeromq. Read the book of scaling, you will see a type of messaging system. 
+
+
 Salt Event System
 Salt Reactor System
 Beacons
