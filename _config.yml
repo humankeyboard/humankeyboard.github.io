@@ -1,5 +1,5 @@
 name: Human Keyboard
 markdown: redcarpet
 pygments: true
-domain: www.humankeyboard.com
+domain: hkb.io
 permalink: /:categories/:year/:title.html
