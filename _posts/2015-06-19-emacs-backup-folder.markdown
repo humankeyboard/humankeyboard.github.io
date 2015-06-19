@@ -22,8 +22,19 @@ and the put at least the first four lines below in that file
     (setq auto-save-file-name-transforms 
             `((".*" , "~/.emacs-backups/" t)))
 
+    (setq delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t)
+
     (setq-default indent-tabs-mode nil)
     (setq-default tab-width 4)
     (setq indent-line-function 'insert-tab)
 
 Once saved, you will be free of backup mess that `vi` guys make fun of.
+
+First section changes backup folder to `~/.emacs-backups`
+
+Middle section changes number of backups to be 6.
+
+Last section modifies tabs.
