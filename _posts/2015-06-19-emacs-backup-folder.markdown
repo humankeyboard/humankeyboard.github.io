@@ -12,13 +12,16 @@ tags:
 
 To configure emacs to store all backups under your home folder in `.emacs-backups` do this;
 
+    # mkdir ~/.emacs-backups
     # emacs ~/.emacs
 
-and the put at least the first 2 lines below in that file
+and the put at least the first four lines below in that file
 
-    (setq backup-directory-alist `(("." . "~/.emacs-backups/")))
-    (setq auto-save-file-name-transforms `(("." . "~/.emacs-backups/" t)))
-    
+    (setq backup-directory-alist 
+            `((".*" . ,"~/.emacs-backups/")))
+    (setq auto-save-file-name-transforms 
+            `((".*" , "~/.emacs-backups/" t)))
+
     (setq-default indent-tabs-mode nil)
     (setq-default tab-width 4)
     (setq indent-line-function 'insert-tab)
