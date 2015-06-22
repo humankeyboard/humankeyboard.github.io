@@ -6,7 +6,10 @@ author: Oz Akan
 abstract: It has been a while since the last time there wasn't an API between me and the infrastructure. You might be on the same boat and want to have a reference to do a few tricks with KVM.
 categories:
     - Cloud
-    - KVM
+tags:
+    - kvm
+    - cloud
+    - virtualization
 ---
 
 ## Create An Instance of CentOS 7
@@ -122,9 +125,15 @@ This will give a long xml file with every detail about the vm.
     # virsh vncdisplay core02
     :0
 
-Which means port `5900`
+{% for count in (0..3) %}
+ `:{{ count }}` means port `590{{ count }}`
+{% endfor %}
+
+...and it goes like that. If you have several virtual machines running you would see more of these ports being allocated.
 
 ### Connect With a VNC Client
+
+Connect to the IP address of the host server and port `5900`.
 
     # open vnc://ip.off.the.server:5900
 
@@ -146,3 +155,8 @@ Restart networking
 
 ### Assign IP Address
 
+    # ip addr add 10.100.8.100/24 dev eth0
+
+## Conclusion
+
+I don't think it is fun to set IP address manually, unless you are a `human keyboard`! We are not input devices, we are the makers. Right? So we are not done, expect for a follow up post soon...
