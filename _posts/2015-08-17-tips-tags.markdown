@@ -1,0 +1,39 @@
+---
+layout: bootstrap_post
+title: Tag Restrictions
+date: 2015-08-17 12:26:00
+author: Oz Akan
+abstract: Tags are the way to group AWS resources for reporting and here are the restrictions for Tags.
+categories:
+    - AWS
+tags:
+    - Tips, AWS, Restrictions
+    
+---
+
+### 128
+Maximum number of unicode characters for key
+
+### 256
+Maximum number of unicode characters for value
+
+### 10
+Maximum number of user created tags per resource. AWS creates tags with aws prefix and this doesn't count towards the tag limit.
+
+### !aws
+"aws" can't be used as a prefix for a tag as it is used by AWS-assigned tag names.
+
+### Once
+Key name can be used only once for a resource.
+
+### Tag after
+You can not tag a resource while creating it. Tag a resource after resource is created.
+
+### !backdate
+You cannot backdate the application of a tag.
+
+### + - = . _ : /
+Are allowed as well as letters, whitespace, and numbers.
+
+### Services with Tag Support
+toDo...
