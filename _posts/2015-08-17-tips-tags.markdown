@@ -7,7 +7,7 @@ abstract: Tags are the way to group AWS resources for reporting and here are the
 categories:
     - AWS
 tags:
-    - Tips, AWS, Restrictions
+    - aws, restrictions, limits
     
 ---
 
