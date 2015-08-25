@@ -7,7 +7,7 @@ abstract: Limitations around Lambda service.
 categories:
     - AWS
 tags:
-    - aws, restrictions, lambda, limits
+    - aws, restrictions, lambda, limits, lambda
     
 ---
 
